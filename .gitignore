@@ -24,7 +24,7 @@ coverage.xml
 .vscode/
 .DS_Store
 
-# Secret scanning (client blocklist - local symlink, never committed)
+# Secret scanning (forbidden-names blocklist - local symlink, never committed)
 .gitleaks.toml
 
 # Test artifacts (tests write JSON logs here)
