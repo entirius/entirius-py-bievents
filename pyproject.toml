@@ -1,0 +1,51 @@
+[project]
+name = "entirius-py-bievents"
+version = "2.0.0"
+description = "Business Intelligence events - structured JSON BI event logging on top of Python logging"
+authors = [{ name = "Entirius" }]
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MPL-2.0"
+dependencies = [
+    "json-log-formatter>=0.5.1",
+]
+
+[project.optional-dependencies]
+dev  = ["ruff", "pre-commit"]
+test = ["pytest"]
+
+[project.urls]
+Repository = "https://github.com/entirius/entirius-py-bievents"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bievents"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "DJ", "S"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+# S101: pre-2.0 API guards its contract with asserts; swapping them for raises would change exception types.
+"src/bievents/event_abstract.py" = ["S101"]
+# B017: the library raises bare Exception by design (pre-2.0 API); tests assert exactly that.
+# S311: non-crypto randomness generates test payloads only.
+"tests/**" = ["S101", "S311", "B017"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["bievents"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
