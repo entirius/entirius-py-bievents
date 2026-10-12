@@ -1,7 +1,19 @@
 [project]
 name = "entirius-py-bievents"
 version = "2.0.0"
-description = "Business Intelligence events - structured JSON BI event logging on top of Python logging"
+description = "Structured JSON business intelligence event logging, part of Entirius, the open-source modular ecommerce platform"
+keywords = ["business-intelligence", "events", "logging", "json", "ecommerce", "entirius"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 authors = [{ name = "Entirius" }]
 readme = "README.md"
 requires-python = ">=3.11"
@@ -15,7 +27,11 @@ dev  = ["ruff", "pre-commit"]
 test = ["pytest"]
 
 [project.urls]
+Homepage = "https://docs.entirius.com/"
+Documentation = "https://docs.entirius.com/"
 Repository = "https://github.com/entirius/entirius-py-bievents"
+Changelog = "https://github.com/entirius/entirius-py-bievents/blob/develop/CHANGELOG.md"
+Issues = "https://github.com/entirius/entirius-py-bievents/issues"
 
 [build-system]
 requires = ["hatchling"]
